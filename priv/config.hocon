@@ -1,0 +1,9 @@
+## This is a demo config in HOCON format
+## The same format used by EMQX since 5.0
+
+exchange = "mqtt.events"
+rabbitmq {
+  uri = "amqp://guest:guest@127.0.0.1:5672"
+  poolSize = 10
+  reconnect = 3
+}

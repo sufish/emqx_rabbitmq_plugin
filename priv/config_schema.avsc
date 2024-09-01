@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "name": "ExtendedConfig",
+  "fields": [
+    {
+      "name": "exchange",
+      "type": "string",
+      "default": "mqtt.events"
+    },
+    {
+      "name": "rabbitmq",
+      "type": {
+        "type": "record",
+        "name": "rabbitmqPoolConfig",
+        "fields": [
+          {
+            "name": "uri",
+            "type": "string",
+            "default": "amqp://guest:guest@127.0.0.1:5672"
+          },
+          {
+            "name": "poolSize",
+            "type": "int",
+            "default": 10
+          },
+          {
+            "name": "reconnect",
+            "type": "int",
+            "default": 3
+          }
+        ]
+      }
+    }
+  ]
+}

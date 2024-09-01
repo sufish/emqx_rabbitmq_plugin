@@ -1,0 +1,11 @@
+{application, emqx_rabbitmq_plugin,
+ [{description, "Another amazing EMQX plugin."},
+  {vsn, "0.1.0"},
+  {modules, []},
+  {registered, [emqx_rabbitmq_plugin_sup]},
+  {applications, [kernel, stdlib, ecpool,amqp_client]},
+  {mod, {emqx_rabbitmq_plugin_app, []}},
+  {env, []},
+  {licenses, ["Apache-2.0"]},
+  {maintainers, ["sufish <fuq@didikon.com>"]}
+ ]}.
