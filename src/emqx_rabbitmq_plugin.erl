@@ -45,7 +45,7 @@
 %% Called when the plugin application start
 load(Env) ->
     {ok, ExchangeName} = application:get_env(emqx_rabbitmq_plugin, exchange),
-    emqx_rabbitmq_hook_conn:ensure_exchange(ExchangeName),
+    emqx_rabbitmq_plugin_conn:ensure_exchange(ExchangeName),
     hook('client.connect',      {?MODULE, on_client_connect, [Env]}),
     hook('client.connack',      {?MODULE, on_client_connack, [Env]}),
     hook('client.connected',    {?MODULE, on_client_connected, [Env]}),
