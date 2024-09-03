@@ -100,7 +100,8 @@ on_client_connected(_ClientInfo = #{clientid := ClientId, username := Username},
     proto_ver, maps:get(proto_ver, ConnInfo),
     connected_at, maps:get(connected_at, ConnInfo)
   },
-  emqx_rabbitmq_plugin_conn:publish(ExchangeName, bson_binary:put_document(Doc), <<"client.connected">>).
+  emqx_rabbitmq_plugin_conn:publish(ExchangeName, bson_binary:put_document(Doc), <<"client.connected">>),
+  ok.
 
 on_client_disconnected(_ClientInfo = #{clientid := ClientId, username := Username}, ReasonCode, ConnInfo, _Env) ->
   {ok, ExchangeName} = application:get_env(emqx_rabbitmq_plugin, exchange),
@@ -116,7 +117,8 @@ on_client_disconnected(_ClientInfo = #{clientid := ClientId, username := Usernam
     disconnected_at, maps:get(disconnected_at, ConnInfo),
     reason, Reason
   },
-  emqx_rabbitmq_plugin_conn:publish(ExchangeName, bson_binary:put_document(Doc), <<"client.disconnected">>).
+  emqx_rabbitmq_plugin_conn:publish(ExchangeName, bson_binary:put_document(Doc), <<"client.disconnected">>),
+  ok.
 
 %% @doc
 %% - Return `{stop, ok}' if this client is to be allowed to login.
